@@ -2,9 +2,8 @@
 #include <fstream>
 #include <string>
 #include <regex>
-#include "lexer.hpp"
+#include "parser.hpp"
 #include "constants.hpp"
-#include "interpreter.hpp"
 
 std::string root;
 
@@ -52,22 +51,10 @@ void init_root(std::string bindir) {
     root += PRELUDE;
 }
 
-void display_state(state prog) {
-    for (auto elem : prog) {
-        std::cout << elem.first + " = " + elem.second.to_string() << std::endl;
-    }
-}
-
 /**
- * Execute a given WHILE-program.
+ * Parse the source code of a given file.
  */
-int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cout << "Missing source file" << std::endl;
-        exit(ERROR_STATUS);
-    }
-    init_root(std::string(argv[0]));
-    auto source = read_source(std::string(argv[1]));
-    auto prog = exec(lex(source));
-    display_state(prog);
+std::string run(char* root, char* filename) {
+    init_root(std::string(root));
+    return read_source(std::string(filename));
 }
