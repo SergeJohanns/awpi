@@ -14,8 +14,8 @@ const std::string ASSIGN = ":=";
 
 const int ERROR_STATUS = 1;
 const int BIN_DEPTH = 2;
-const std::string STD_PREFIX = "prelude::";
 const std::string IMPORT = "#import";
+const std::string INCLUDE = "#include";
 const std::string PRELUDE = "/prelude/";
 
 const int CONST_BASE = 10;

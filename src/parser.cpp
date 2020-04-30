@@ -13,11 +13,7 @@ std::string root;
 std::string read_source(std::string filename) {
     std::ifstream source_file;
     bool found = false;
-    if (filename.substr(0, STD_PREFIX.length()) == STD_PREFIX) {
-        source_file.open(root + filename.substr(STD_PREFIX.length()));
-    } else {
-        source_file.open(filename);
-    }
+    source_file.open(filename);
     if (source_file.is_open()) {
         std::string out = "";
         std::string line;
@@ -27,6 +23,9 @@ std::string read_source(std::string filename) {
             if (line.substr(0, IMPORT.length()) == IMPORT) {
                 // Read the imported file and insert it. The regex serves to remove leading and trailing spaces from the filename.
                 out += read_source(std::regex_replace(line.substr(IMPORT.length()), std::regex("^ +| +$"), ""));
+            } else if (line.substr(0, INCLUDE.length()) == INCLUDE) {
+                // Read the included prelude file and insert it. The regex serves to remove leading and trailing spaces from the filename.
+                out += read_source(root + std::regex_replace(line.substr(INCLUDE.length()), std::regex("^ +| +$"), ""));
             } else {
                 // Insert the line. The regex removes all leading and trailing spaces, and collapses adjacent spaces into one.
                 out += std::regex_replace(line, std::regex("^ +| +$|( ) +"), "$1") + " ";
