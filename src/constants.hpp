@@ -3,6 +3,7 @@
 
 #include <string>
 
+const std::string NOP = "";
 const std::string DO = "do";
 const std::string OD = "od";
 const std::string CONS = "cons"; // Purely internal, does not affect syntax.
