@@ -48,7 +48,7 @@ void init_root(std::string bindir) {
     for (int i = 0; i < BIN_DEPTH; i++) {
         root = root.substr(0, root.find_last_of("/"));
     }
-    root += "/resources/";
+    root += PRELUDE;
 }
 
 /**
