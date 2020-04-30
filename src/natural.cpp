@@ -41,7 +41,7 @@ Natural::Natural() {
 }
 
 Natural::Natural(std::string constant) {
-    for (int i = constant.size() - 1; i >= 0; i++) {
+    for (int i = constant.size() - 1; i >= 0; i--) {
         number.push_back(constant[i]);
     }
 }
