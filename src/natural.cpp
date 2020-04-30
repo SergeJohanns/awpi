@@ -36,16 +36,6 @@ void sub_from_vectors(std::vector<int> &vector, int scalar, int offset) {
     }
 }
 
-Natural::Natural() {
-
-}
-
-Natural::Natural(std::string constant) {
-    for (int i = constant.size() - 1; i >= 0; i--) {
-        number.push_back(constant[i]);
-    }
-}
-
 void add_vectors(std::vector<int> &a, std::vector<int> &b) {
     int offset = 0;
     for (auto n : b) {
@@ -60,8 +50,26 @@ void sub_vectors(std::vector<int> &a, std::vector<int> &b) {
     }
 }
 
+Natural::Natural() {
+
+}
+
+Natural::Natural(std::string constant) {
+    for (int i = constant.size() - 1; i >= 0; i--) {
+        number.push_back(constant[i]);
+    }
+}
+
 Natural Natural::zero() {
     return Natural("0");
+}
+
+std::string Natural::to_string() {
+    std::string out = "";
+    for (int i = number.size(); i >= 0; i--) {
+        out += number[i];
+    }
+    return out;
 }
 
 bool Natural::operator==(Natural other) {

@@ -4,6 +4,7 @@
 #include <regex>
 #include "lexer.hpp"
 #include "constants.hpp"
+#include "interpreter.hpp"
 
 std::string root;
 
@@ -51,6 +52,12 @@ void init_root(std::string bindir) {
     root += PRELUDE;
 }
 
+void display_state(state prog) {
+    for (auto elem : prog) {
+        std::cout << elem.first + " = " + elem.second.to_string() << std::endl;
+    }
+}
+
 /**
  * Execute a given WHILE-program.
  */
@@ -61,5 +68,6 @@ int main(int argc, char* argv[]) {
     }
     init_root(std::string(argv[0]));
     auto source = read_source(std::string(argv[1]));
-    lex(source);
+    auto prog = exec(lex(source));
+    display_state(prog);
 }
