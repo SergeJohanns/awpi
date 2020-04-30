@@ -4,6 +4,12 @@
 #include "parser.hpp"
 #include "interpreter.hpp"
 
+void display_state(state prog) {
+    for (auto elem : prog) {
+        std::cout << elem.first + " = " + elem.second.to_string() << std::endl;
+    }
+}
+
 int main(int argc, char* argv[]) {
     if (argc < 2) {
         // No arguments given
@@ -26,11 +32,5 @@ int main(int argc, char* argv[]) {
     } else {
         // Run file
         display_state(exec(lex(run(argv[0], argv[1]))));
-    }
-}
-
-void display_state(state prog) {
-    for (auto elem : prog) {
-        std::cout << elem.first + " = " + elem.second.to_string() << std::endl;
     }
 }

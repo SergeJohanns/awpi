@@ -1,10 +1,17 @@
 #include <string>
+#include <iostream>
 #include <unordered_map>
 #include "interpreter.hpp"
 #include "constants.hpp"
 #include "natural.hpp"
 #include "errors.hpp"
 #include "asp.hpp"
+
+void display_state(state prog) {
+    for (auto elem : prog) {
+        std::cout << elem.first + " = " + elem.second.to_string() << std::endl;
+    }
+}
 
 void has_var(state &program_state, std::string &key) {
     if (program_state.count(key) == 0) {
