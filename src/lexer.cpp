@@ -3,13 +3,9 @@
 #include <queue>
 #include "asp.hpp"
 #include "lexer.hpp"
+#include "errors.hpp"
 #include "constants.hpp"
 #include "symbol_check.hpp"
-
-void syntax_error(std::string message) {
-    std::cout << message << std::endl;
-    exit(ERROR_STATUS);
-}
 
 void not_empty(std::queue<std::string> &tokens) {
     if (tokens.empty()) {
