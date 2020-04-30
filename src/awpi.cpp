@@ -27,6 +27,6 @@ int main(int argc, char* argv[]) {
         //lex(run(argv[0], argv[2]));
     } else {
         // Run file
-        display_state(exec(lex(run(argv[0], argv[1]))));
+        display_state(exec(lex(parse(argv[0], argv[1]))));
     }
 }

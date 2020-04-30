@@ -53,7 +53,7 @@ void init_root(std::string bindir) {
 /**
  * Parse the source code of a given file.
  */
-std::string run(char* root, char* filename) {
+std::string parse(char* root, char* filename) {
     init_root(std::string(root));
     return read_source(std::string(filename));
 }

@@ -3,6 +3,6 @@
 
 #include <string>
 
-std::string run(char* root, char* filename);
+std::string parse(char* root, char* filename);
 
 #endif
