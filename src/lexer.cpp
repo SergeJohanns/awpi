@@ -82,7 +82,7 @@ AbstractSyntaxTree lex(std::queue<std::string> tokens) {
                 not_empty(tokens);
                 auto second = tokens.front();
                 tokens.pop();
-                if (!is_identifier(tokens.front())) {
+                if (!is_identifier(second)) {
                     syntax_error("Invalid identifier \"" + second + "\"");
                 }
                 expr.children.push_back(AbstractSyntaxTree(first));
