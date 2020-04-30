@@ -39,7 +39,7 @@ void exec(AbstractSyntaxTree code, state &program_state) {
         } else {
             value = Natural(code.children[1].token);
         }
-        program_state[code.children[0].token];
+        program_state[code.children[0].token] = value;
     } else if (code.token == CONS) {
         exec(code.children[0], program_state);
         exec(code.children[1], program_state);
