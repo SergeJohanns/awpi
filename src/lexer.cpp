@@ -87,6 +87,7 @@ AbstractSyntaxTree lex(std::queue<std::string> tokens) {
                 }
                 expr.children.push_back(AbstractSyntaxTree(first));
                 expr.children.push_back(AbstractSyntaxTree(second));
+                out.children.push_back(expr);
             } else {
                 syntax_error("Invalid identifier \"" + tokens.front() + "\"");
             }

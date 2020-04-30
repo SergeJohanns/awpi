@@ -16,9 +16,10 @@ Natural eval(AbstractSyntaxTree code, state &program_state) {
     has_var(program_state, code.children[0].token);
     has_var(program_state, code.children[1].token);
     if (code.token == PLUS) {
-        return Natural(code.children[0].token) + Natural(code.children[1].token);
+        return program_state[code.children[0].token] + program_state[code.children[1].token];
     } else if (code.token == MINUS) {
-        return Natural(code.children[0].token) - Natural(code.children[1].token);
+        Natural out = program_state[code.children[0].token] - program_state[code.children[1].token];
+        return out;
     } else {
         symbol_undefined(code.token);
         return Natural::zero();
