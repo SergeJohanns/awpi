@@ -9,7 +9,9 @@
 
 void display_state(state prog) {
     for (auto elem : prog) {
-        std::cout << elem.first + " = " + elem.second.to_string() << std::endl;
+        if (elem.first.substr(0, HIDE_PREFIX.length()) != HIDE_PREFIX) {
+            std::cout << elem.first + " = " + elem.second.to_string() << std::endl;
+        }
     }
 }
 

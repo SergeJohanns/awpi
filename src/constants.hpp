@@ -11,6 +11,7 @@ const std::string PLUS = "+";
 const std::string MINUS = "-";
 const std::string WHILE = "while";
 const std::string ASSIGN = ":=";
+const std::string HIDE_PREFIX = "_";
 
 const int ERROR_STATUS = 1;
 const int BIN_DEPTH = 2;
