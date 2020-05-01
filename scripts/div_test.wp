@@ -1,0 +1,5 @@
+_in_a := 103
+_in_b := 14
+#include div
+div := _out_a + __zero
+mod := _out_b + __zero

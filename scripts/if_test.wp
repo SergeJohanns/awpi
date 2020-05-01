@@ -1,0 +1,4 @@
+_in := 1
+#include if
+    x := 1
+#include endif
