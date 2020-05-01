@@ -24,9 +24,12 @@ void sub_from_vectors(std::vector<int> &vector, int scalar, int offset) {
     int rem = -scalar;
     for (int i = offset; rem < 0 && i < vector.size(); i++) {
         vector[i] += rem;
-        auto divmod = std::div(vector[i], CONST_BASE);
-        vector[i] = divmod.rem;
-        rem = divmod.quot;
+        if (vector[i] < 0) {
+            vector[i] += CONST_BASE;
+            rem = -1;
+        } else {
+            rem = 0;
+        }
     }
     if (rem < 0) {
         vector = std::vector<int>({0});
