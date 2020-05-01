@@ -1,0 +1,4 @@
+_out := 1
+#include if
+    _out := 0
+#include endif

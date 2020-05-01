@@ -1,0 +1,13 @@
+__zero := 0
+__one := 1
+_out_a := 0
+_out_b := 0
+_in_a := _in_a + __one
+while _in_a do
+    _out_a := _out_a + __one
+    _in_a := _in_a - __one
+    _out_b := _in_a + __zero
+    _in_a := _in_a + __one
+    _in_a := _in_a - _in_b
+od
+_out_a := _out_a - __one
