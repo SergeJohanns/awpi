@@ -17,6 +17,7 @@ const int ERROR_STATUS = 1;
 const int BIN_DEPTH = 2;
 const std::string IMPORT = "#import";
 const std::string INCLUDE = "#include";
+const std::string COMMENT = "//"; // REGEX. Be sure to escape control characters.
 const std::string PRELUDE = "/prelude/";
 
 const int CONST_BASE = 10;

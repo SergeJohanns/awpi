@@ -20,6 +20,8 @@ std::string read_source(std::string filename) {
         while (getline(source_file, line)) {
             // Replace all tabs by a single space, so they can also be cleaned up.
             line = std::regex_replace(line, std::regex("\t"), " ");
+            // Strip off all comments until the end of the line.
+            line = std::regex_replace(line, std::regex(COMMENT + ".*$"), "");
             if (line.substr(0, IMPORT.length()) == IMPORT) {
                 // Read the imported file and insert it. The regex serves to remove leading and trailing spaces from the filename.
                 out += read_source(std::regex_replace(line.substr(IMPORT.length()), std::regex("^ +| +$"), ""));
