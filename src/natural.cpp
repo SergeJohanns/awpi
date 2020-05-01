@@ -13,6 +13,9 @@ void add_to_vectors(std::vector<int> &vector, int scalar, int offset) {
         rem = divmod.quot;
     }
     if (rem > 0) {
+        for (int i = vector.size(); i < offset; i++) {
+            vector.push_back(0);
+        }
         vector.push_back(rem);
     }
 }
