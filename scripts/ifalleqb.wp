@@ -1,4 +1,4 @@
-// Sets leq to 1 if a <= b, else sets lt to 0.
+// Sets leq to 1 if a <= b, else sets leq to 0.
 
 // Input variables, feel free to change.
 a := 3
