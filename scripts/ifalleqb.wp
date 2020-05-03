@@ -1,0 +1,20 @@
+// Sets leq to 1 if a <= b, else sets lt to 0.
+
+// Input variables, feel free to change.
+a := 3
+b := 5
+
+// Program
+one := 1
+if := b + one
+if := if - a
+else := 1
+while if do
+    leq := 1
+    else := 0
+    if := 0
+od
+while else do
+    leq := 0
+    else := 0
+od
