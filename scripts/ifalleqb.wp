@@ -1,4 +1,6 @@
 // Sets leq to 1 if a <= b, else sets leq to 0.
+// Note that this program is overly complicated because it is meant to illustrate an if a <= b else structure.
+// The setting of leq itself does not require so much code, but it could be replaced by any other program. 
 
 // Input variables, feel free to change.
 a := 3
