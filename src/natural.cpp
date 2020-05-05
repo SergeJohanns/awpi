@@ -4,6 +4,36 @@
 #include "natural.hpp"
 #include "constants.hpp"
 
+Natural::Natural() {
+
+}
+
+Natural::Natural(std::string constant) {
+    for (int i = constant.size() - 1; i >= 0; i--) {
+        number.push_back(constant[i] - '0');
+    }
+}
+
+Natural Natural::zero() {
+    return Natural("0");
+}
+
+std::string Natural::to_string() {
+    std::string out = "";
+    for (int i = number.size() - 1; i >= 0; i--) {
+        out += std::to_string(number[i]);
+    }
+    return out;
+}
+
+bool Natural::operator==(Natural other) {
+    return this->number == other.number;
+}
+
+bool Natural::operator!=(Natural other) {
+    return this->number != other.number;
+}
+
 void add_to_vectors(std::vector<int> &vector, int scalar, int offset) {
     int rem = scalar;
     for (int i = offset; rem > 0 && i < vector.size(); i++) {
@@ -48,36 +78,6 @@ void sub_vectors(std::vector<int> &a, std::vector<int> &b) {
     for (auto n : b) {
         sub_from_vectors(a, n, offset++);
     }
-}
-
-Natural::Natural() {
-
-}
-
-Natural::Natural(std::string constant) {
-    for (int i = constant.size() - 1; i >= 0; i--) {
-        number.push_back(constant[i] - '0');
-    }
-}
-
-Natural Natural::zero() {
-    return Natural("0");
-}
-
-std::string Natural::to_string() {
-    std::string out = "";
-    for (int i = number.size() - 1; i >= 0; i--) {
-        out += std::to_string(number[i]);
-    }
-    return out;
-}
-
-bool Natural::operator==(Natural other) {
-    return this->number == other.number;
-}
-
-bool Natural::operator!=(Natural other) {
-    return this->number != other.number;
 }
 
 Natural Natural::operator+(Natural other) {
